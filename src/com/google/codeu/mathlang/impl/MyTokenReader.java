@@ -76,12 +76,12 @@ public final class MyTokenReader implements TokenReader {
     try
     {
       c = read();
-      while(!Character.isWhitespace(c) && c != ';' && c != '\0')
+      while(!Character.isWhitespace(c) && c != ';' && c != '\0' && Character.isAlphabetic(c))
       {
         result += c;
         c = read();
       }
-      if(c == ';')
+      if(!Character.isAlphabetic(c))
       {
         back();
       }
@@ -128,10 +128,7 @@ public final class MyTokenReader implements TokenReader {
     {
 
     }
-    if(c == ';')
-    {
-      back();
-    }
+    back();
     return result;
   } 
   private String readString(char c)
@@ -149,10 +146,6 @@ public final class MyTokenReader implements TokenReader {
     catch(IOException exception)
     {
 
-    }
-    if(c == ';')
-    {
-      back();
     }
     return result;
   }
