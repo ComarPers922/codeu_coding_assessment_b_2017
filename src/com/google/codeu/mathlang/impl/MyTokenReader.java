@@ -54,10 +54,7 @@ public final class MyTokenReader implements TokenReader {
       throw new IOException();
     }
   }
-  private char readCurrentChar()
-  {
-    return source.charAt(currentPosition);
-  }
+  
   private void back()
   {
     currentPosition --;
